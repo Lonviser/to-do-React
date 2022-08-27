@@ -1,22 +1,23 @@
-import React, { useState } from "react";
-import TodoItem from "./item/TodoItem";
+import React, { useState } from 'react'
+import TodoItem from './item/TodoItem'
+import CreateTodoField from '../create-todo-field/CreateTodoField'
 
 const data = [
-    {
-        _id:'1231',
-        title: 'Finish the essay collaboration',
-        isCompleted: false,
-    },
-    {
-        _id:'123241',
-        title: 'Read next chapter of the book',
-        isCompleted: false,
-    },
-    {
-        _id:'3241',
-        title: 'Send',
-        isCompleted: false,
-    }
+	{
+		_id: 'wefw23',
+		title: 'Finish the essay collaboration',
+		isCompleted: false,
+	},
+	{
+		_id: 'wefw23232',
+		title: 'Read next chapter of the book',
+		isCompleted: false,
+	},
+	{
+		_id: 'wefw2qwefcev3',
+		title: 'Send the finished assignment',
+		isCompleted: false,
+	},
 ]
 
 const Home = () => {
@@ -30,19 +31,21 @@ const Home = () => {
 	}
 
 	const removeTodo = id => setTodos([...todos].filter(t => t._id !== id))
-    
-    return(
-        <div className='text-white w-4/5 mx-auto'>
+
+	return  (
+		<div className='text-white w-4/5 mx-auto'>
 			<h1 className='text-2xl font-bold text-center mb-10'>Todo for junior</h1>
 			{todos.map(todo => (
 				<TodoItem
 					key={todo._id}
 					todo={todo}
 					changeTodo={changeTodo}
+					removeTodo={removeTodo}
 				/>
 			))}
+			<CreateTodoField setTodos={setTodos} />
 		</div>
-    )
+	) 
 }
 
-export default Home;
+export default Home
